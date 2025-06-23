@@ -144,7 +144,7 @@ Dane dostępowe do bazy zostały zanonimizowane i przeniesione do przykładowego
 ### 1. Klonuj repozytorium
 
 ```bash
-git clone https://github.com/WozniakI/Smart_Park
+git clone https://github.com/WozniakI/SmartParkApp
 cd smartpark
 ```
 
