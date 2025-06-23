@@ -1,0 +1,64 @@
+/* Plik: static/css/history.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(0deg, #0881ea 10%, #15a8a9 90%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Kolor tekstu na biały */
+}
+
+h2 {
+    font-size: 2em; /* Zwiększona wielkość czcionki dla nagłówka */
+    margin-bottom: 20px; /* Dodany margines na dole dla nagłówka */
+}
+
+table {
+    width: 80%;
+    margin-top: 20px; /* Dodany margines na górze dla tabeli */
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #fff; /* Ramka dla tabeli */
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+th {
+    background-color: #333; /* Kolor tła dla nagłówków tabeli */
+    color: #fff; /* Kolor tekstu dla nagłówków tabeli */
+}
+
+tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.1); /* Przezroczyste tło dla parzystych wierszy */
+}
+
+.button {
+    display: block;
+    margin-top: 20px;
+    padding: 15px 45px;
+    background-image: linear-gradient(to right, #485563 0%, #29323c 51%, #485563 100%);
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}

@@ -1,0 +1,43 @@
+ <!-- 
+    html storny histori parkowania uzytkownika 5.1
+    ma zawierać historię parkowania
+    i przycisk powrotu do profilu 4.2
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/history.css') }}">
+
+    <title>Historia Rezerwacji</title>
+</head>
+<body>
+    <h2>Historia Rezerwacji</h2>
+
+    {% if reservations %}
+        <table border="1">
+            <tr>
+                <th>Nazwa Parkingu</th>
+                <th>Czas Przyjazdu</th>
+                <th>Czas Odjazdu</th>
+                <th>Data Rezerwacji</th>
+            </tr>
+            {% for reservation in reservations %}
+                <tr>
+                    <td>{{ reservation[2] }}</td>
+                    <td>{{ reservation[3] }}</td>
+                    <td>{{ reservation[4] }}</td>
+                    <td>{{ reservation[5] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Brak dostępnych rezerwacji.</p>
+    {% endif %}
+
+    <a href="{{ url_for('homePage') }}" class="button">Powrót</a>
+</body>
+</html>

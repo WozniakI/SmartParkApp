@@ -1,0 +1,52 @@
+Regulamin Aplikacji "Smart Park"
+
+1.	Warunki Ogólne
+
+1.1	Korzystanie z aplikacji "Smart Park" jest możliwe po akceptacji niniejszego regulaminu.
+1.2	Aplikacja "Smart Park" jest przeznaczona do zarządzania miejscami parkingowymi oraz rezerwacji usług z nimi związanych.
+1.3	Użytkownik zobowiązany jest do przestrzegania obowiązujących przepisów ruchu drogowego oraz zasad obowiązujących na terenie miejsc parkingowych.
+
+2.	Rejestracja i Konto Użytkownika
+
+2.1	W celu korzystania z pełnych funkcji aplikacji, konieczna jest rejestracja i posiadanie konta użytkownika.
+2.2	Podczas rejestracji, użytkownik zobowiązany jest do podania rzetelnych i aktualnych danych osobowych oraz informacji dotyczących pojazdu.
+2.3	Użytkownik ponosi odpowiedzialność za zachowanie poufności danych dostępowych do swojego konta.
+2.4	Aplikacja zastrzega sobie prawo do weryfikacji podanych danych oraz do czasowego zawieszenia lub zablokowania konta w przypadku podejrzenia naruszenia regulaminu.
+
+3.	Rezerwacje i Płatności
+
+3.1	Aplikacja "Smart Park" umożliwia dokonywanie rezerwacji miejsc parkingowych z wyprzedzeniem.
+3.2	Płatności za rezerwacje są dokonywane z góry przy użyciu dostępnych metod płatności w aplikacji.
+3.3	Cena usług parkingowych jest transparentnie prezentowana w aplikacji przed dokonaniem rezerwacji.
+3.4	Aplikacja zastrzega sobie prawo do zmiany cen usług zgodnie z obowiązującymi przepisami.
+
+ 
+4.	Zasady Korzystania z Miejsc Parkingowych
+
+4.1	Użytkownik zobowiązany jest do przestrzegania zasad obowiązujących na terenie miejsc parkingowych, w tym znaków drogowych i oznaczeń.
+4.2	W przypadku korzystania z miejsc parkingowych bez użycia aplikacji, użytkownik zobowiązany jest do skorzystania z tradycyjnych metod płatności.
+4.3	Aplikacja nie ponosi odpowiedzialności za ewentualne szkody wynikłe z nieprawidłowego parkowania lub korzystania z miejsc parkingowych.
+
+5.	Powiadomienia i Informacje
+
+5.1	Użytkownik wyraża zgodę na otrzymywanie powiadomień dotyczących rezerwacji oraz istotnych informacji związanych z użytkowaniem aplikacji.
+
+6.	Odpowiedzialność
+
+6.1	Administracja aplikacji nie ponosi odpowiedzialności za szkody wynikłe z nieprawidłowego korzystania z usług parkingowych lub błędów w działaniu aplikacji.
+6.2	Użytkownik ponosi pełną odpowiedzialność za swoje postępowanie podczas korzystania z miejsc parkingowych.
+
+7.	Bezpieczeństwo Danych
+
+7.1	Aplikacja "Smart Park" zapewnia bezpieczeństwo danych użytkowników, stosując odpowiednie środki ochrony zgodnie z obowiązującymi przepisami.
+7.2	Użytkownik zobowiązany jest do zachowania ostrożności przy udostępnianiu swoich danych osobowych.
+
+ 
+8.	Zmiany w Regulaminie
+
+8.1	Administracja zastrzega sobie prawo do wprowadzania zmian w regulaminie, informując użytkowników o tym poprzez powiadomienia w aplikacji.
+
+9.	Zakończenie Korzystania z Aplikacji
+
+9.1	Użytkownik ma prawo zakończyć korzystanie z aplikacji w dowolnym momencie, usuwając swoje konto.
+9.2	W przypadku naruszenia postanowień regulaminu, administracja ma prawo zablokować lub usunąć konto użytkownika.

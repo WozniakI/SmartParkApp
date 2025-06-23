@@ -1,0 +1,53 @@
+ <!-- 
+    html storny logowania - obrazek 2.1
+    ma zaiwerać formularz logowania 
+    ma przekierowywqać do @app.route('/home')
+    czyli na stronę główną obrazek 3 
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ysabeau+SC:wght@200&display=swap" rel="stylesheet">
+    <title>Logowanie</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+
+</head>
+<body>
+    <header>
+        <div class="header-text">
+            <h1><span class="ng">SmartPark</span></h1>
+        </div>
+        
+    </header>
+   <!-- {% if error %}
+    <p class="error">Niepoprawna nazwa użytkownika lub hasło.</p>
+    {% endif %}
+    -->
+    
+    <h1>Zaloguj się: </h1>
+    <form method="POST" action="{{ url_for('logIn') }}">
+        <label for="email">Adres email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+        <label for="password">Hasło:</label>
+        <input type="password" id="password" name="password" required><br>
+        <button type="submit" class="button">Zaloguj</button>
+    </form>
+   
+    <p>Nie masz konta? </p><button class="button" onclick="redirectToRegister()">Zarejestruj się</button>
+
+
+<!-- Skrypt JavaScript do przekierowania -->
+<script>
+    function redirectToRegister() {
+        // Użyj dowolnego kodu JS do przekierowania użytkownika, na przykład:
+        window.location.href = "{{ url_for('register') }}";
+    }
+</script>   
+
+</body>
+</html>

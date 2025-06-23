@@ -1,0 +1,80 @@
+ <!-- 
+    html storny profilu uzytkownika 4.2
+    ma zaiwerać dane użytkownika
+    ma przekierowywać do histori parkowania 4.2.1 @app.route('/history')
+    ma mieć przycisk powrotu do home 3  @app.route('/homePage')
+    ma mieć przycisk wyloguj (chyba trzeba zrobic def wyloguj i usunąć dane sesji)
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reservations.css') }}">
+
+    <title>Profil Użytkownika</title>
+    <style>
+        .hidden-form {
+            display: none;
+        }
+    </style>
+    
+    <script>
+        function toggleFormVisibility(formId) {
+            var form = document.getElementById(formId);
+            if (form.style.display === "none") {
+                form.style.display = "block";
+            } else {
+                form.style.display = "none";
+            }
+        }
+    </script>
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Profil Użytkownika</h2>
+        <div class="user-details">
+            {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+            {% endwith %}
+            <p><strong>Imię i nazwisko:</strong> {{ name }}</p>
+            <p><strong>Email:</strong> {{ email }}</p>
+            <p><strong>Numery rejestracyjne pojazdów:</strong></p>
+            {% for vehicle in vehicles %}
+                <p>{{ vehicle[1] }} ({{ vehicle[2] }})</p>
+                <button onclick="toggleFormVisibility('editForm{{ vehicle[3] }}')">Edytuj</button>
+                <form id="editForm{{ vehicle[3] }}" class="hidden-form" action="{{ url_for('editVehicle', vehicleID=vehicle[3]) }}" method="post">
+                    <input type="text" name="new_vehicle_name_{{ vehicle[3] }}" placeholder="New Vehicle Name">
+                    <button type="submit" class="btnn">Edit Name</button>
+                </form>
+            {% endfor %}
+
+            <button onclick="toggleFormVisibility('addForm')">Dodaj nowy pojazd</button>
+            <form id="addForm" class="hidden-form" action="{{ url_for('addVehicle') }}" method="post">
+                <label for="new_vehicle_name">Nazwa pojazdu:</label>
+                <input type="text" id="new_vehicle_name" name="new_vehicle_name" required>
+                
+                <label for="new_vehicle_registration">Numer rejestracyjny:</label>
+                <input type="text" id="new_vehicle_registration" name="new_vehicle_registration" required>
+
+                <button type="submit" class="btnn">Dodaj</button>
+            </form>
+        </div>
+
+        <a href="{{ url_for('currentBooking') }}" class="button">Aktualne Rezerwacje</a>
+        <a href="{{ url_for('userHistory') }}" class="button">Historia Parkowania</a>
+        <a href="{{ url_for('homePage') }}" class="button">Powrót</a>
+        <form action="{{ url_for('logOut') }}" method="post">
+            <button type="submit" class="button">Wyloguj</button>
+        </form>
+    </div>
+</body>
+</html>

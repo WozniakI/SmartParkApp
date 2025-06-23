@@ -1,0 +1,25 @@
+ <!-- 
+   płatność ???
+   dalej do potwierdzenia 7 @app.route('/confirmation') 
+   przycisk powrotu do home 3
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Płatność</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
+
+</head>
+<body>
+  <h1>Wybierz metodę płatności</h1>
+    <div class="container">
+        <a href="{{ url_for('confirmation') }}" class="button">metoda 1</a>
+        <a href="{{ url_for('confirmation') }}" class="button">metoda 2</a>
+        <a href="{{ url_for('confirmation') }}" class="button">metoda 3</a>
+        <a href="{{ url_for('homePage') }}" class="button">Powrót do Home</a>
+    </div>
+</body>
+</html>

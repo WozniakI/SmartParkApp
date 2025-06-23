@@ -1,0 +1,125 @@
+ <!-- 
+    html storny rezerwacji
+    ma zawierać formularz do rezerwacji miejsca 
+    przycisk powrotu do home 3 @app.route('/homePage')
+    przycisk dalej przekierowujący do szczegółów 5 @app.route('/details') 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation Form</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/reservations.css') }}">
+
+    <script>
+      function updateSpaceTypeOptions() {
+    var selectedParking = document.getElementById("parking").value;
+    var spaceTypeSelect = document.getElementById("space_type");
+    spaceTypeSelect.innerHTML = '<option value="">---</option>';
+
+    // Pobierz dane o miejscu parkingowym na podstawie wybranego parkingID
+    console.log('Selected Parking:', selectedParking);
+
+    fetch(`/get_space_types?parkingName=${selectedParking}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log('Data from endpoint:', data);
+
+            data.forEach(spaceType => {
+                console.log('Adding option:', spaceType);
+                var option = new Option(spaceType[1], spaceType[3]);
+
+                spaceTypeSelect.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+    </script>
+    <script>
+        // Pobierz element inputa
+        var arrivalTimeInput = document.getElementById('arrival_time');
+    
+        // Ustaw atrybut "min" na obecną datę
+        arrivalTimeInput.min = new Date().toISOString().slice(0, 16);
+    
+        // Ustaw atrybut "max" na datę kilka dni do przodu (możesz dostosować)
+        var maxDate = new Date();
+        maxDate.setDate(maxDate.getDate() + 7); // Przykładowo, ograniczamy do 7 dni do przodu
+        arrivalTimeInput.max = maxDate.toISOString().slice(0, 16);
+    </script>
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Zarezerwuj</h2>
+        <form method="POST" action="{{ url_for('booking') }}">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="alert alert-warning">
+                    {{ messages[0] }}
+                    </div>
+                {% endif %}
+                {% endwith %}
+
+            <div class="form-group">
+                <label for="vehicle">Wybierz pojazd</label>
+                <select id="vehicle" name="vehicle" required>
+                    <option value="">---</option>
+                    {% if vehicles %}
+                        {% for vehicle in vehicles %}
+                            <option value="{{ vehicle[1] }}">{{ vehicle[1] }}</option>
+                        {% endfor %}
+                    {% else %}
+                        <option value="" disabled>Brak dostępnych pojazdów</option>
+                    {% endif %}
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="parking">Wybierz miejsce parkingowe</label>
+                <select id="parking" name="parking" required onchange="updateSpaceTypeOptions()">
+                    <option value="">---</option>
+                    {% if parkings %}
+                        {% for parking in parkings %}
+                            <option value="{{ parking[1] }}">{{ parking[1] }} </option>
+                        {% endfor %}
+                    {% else %}
+                        <option value="" disabled>Brak dostępnych miejsc parkingowych</option>
+                    {% endif %}
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="arrival_time">Czas przyjazdu</label>
+                <input type="datetime-local" id="arrival_time" name="arrival_time" step="900" required>
+            </div>
+            
+                
+            <div class="form-group">
+                <label for="duration_hours">Czas postoju (godziny)</label>
+                <input type="number" id="duration_hours" name="duration_hours" min="0" step="1" required>
+            </div>
+            <div class="form-group">
+                <label for="duration_minutes">Czas postoju (minuty)</label>
+                <input type="number" id="duration_minutes" name="duration_minutes" min="0" max="59" step="15" required>
+            </div>
+
+
+            <div class="form-group">
+                <label for="space_type">Typ miejsca</label>
+                <select id="space_type" name="space_type" required>
+                    <option value="">---</option>
+                    <option value="1">Przykładowy Typ Miejsca</option>
+                    <!-- dynamicznie aktualizowane opcje na podstawie wybranego miejsca parkingowego -->
+                </select>
+            </div>
+            <button type="submit" class="button">Dalej</button>
+            <a href="{{ url_for('homePage') }}" class="button">Powrót</a>
+        </form>
+    </div>
+</body>
+</html>

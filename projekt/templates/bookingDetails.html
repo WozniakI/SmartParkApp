@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+
+    <title>Reservation Details</title>
+    <!-- Dodaj link do API Google Maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=TWOJ_KLUCZ_API&callback=initMap" 
+    async defer></script>
+    <style>
+        /* Dodaj styl dla kontenera mapy */
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+    <script>
+        // Inicjalizacja mapy
+        function initMap() {
+            // Pobierz współrzędne miejsca Kraków
+            var myLatLng = {lat: 19.56, lng: 50.04};
+            
+            // Utwórz mapę, ustawiając jej centralkę i poziom przybliżenia
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: myLatLng,
+                zoom: 15
+            });
+            
+            // Utwórz marker na mapie
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Miejsce rezerwacji'
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>Szczegóły rezerwacji</h2>
+        <div class="details">
+        <p><strong>Wybrany pojazd:</strong> {{ selected_vehicle }}</p>
+        <p><strong>Wybrany parking:</strong> {{ selected_parking }}</p>
+        <p><strong>Czas przyjazdu:</strong> {{ arrival_time }}</p>
+
+        <p><strong>Czas wyjazdu:</strong> {{ departure_time }}</p>
+        <p><strong>Typ miejsca:</strong> {{ space_type }}</p>
+        </div>
+        <a href="{{ url_for('payments') }}" class="button">Zapłać</a>
+        <a href="{{ url_for('booking') }}" class="button">Powrót</a>
+        
+        <!-- Dodaj kontener dla mapy -->
+        <div id="map"></div>
+
+    </div>
+</body>
+</html>

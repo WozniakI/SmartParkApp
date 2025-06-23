@@ -1,0 +1,59 @@
+/* Plik: static/css/points.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(0deg, #0881ea 10%, #15a8a9 90%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Kolor tekstu na biały */
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto; /* Zwiększony margines od góry */
+    padding: 20px;
+    
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+h2 {
+    font-size: 2em; /* Zwiększona wielkość czcionki */
+    margin-bottom: 20px; /* Dodany margines na dole dla nagłówka */
+}
+
+.user-score-label {
+    font-size: 1.5em; /* Zwiększona wielkość czcionki dla napisu "Liczba punktów" */
+}
+
+.user-score {
+    font-size: 3em; /* Zwiększona wielkość czcionki dla punktów */
+    font-weight: bold;
+    margin-bottom: 20px; /* Dodany margines na dole dla liczby punktów */
+}
+
+.button {
+    display: block;
+    margin-top: 20px;
+    padding: 15px 45px;
+    background-image: linear-gradient(to right, #485563 0%, #29323c 51%, #485563 100%);
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}

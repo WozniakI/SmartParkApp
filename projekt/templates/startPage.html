@@ -1,0 +1,39 @@
+ <!-- 
+    html storny startowej - obrazek 1 
+    ma zaiwerać przekirowanie do @app.route('/logowanie')
+    (analogicznie rejestracja - obrazek 2.2)
+    czyli na stronę logowania - obrazek 2.1
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPark</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
+</head>
+<body>
+    <h1>Witaj w SmartPark</h1>
+
+
+    <button class="button" onclick="redirectToRegister()">Zarejestruj się</button>
+
+    <button class="button" onclick="redirectToLogIn()">Zaloguj się</button></p>
+
+
+    <!-- Skrypt JavaScript do przekierowania -->
+    <script>
+        function redirectToLogIn() {
+            // Użyj dowolnego kodu JS do przekierowania użytkownika, na przykład:
+            window.location.href = "{{ url_for('logIn') }}";
+            }
+        function redirectToRegister() {
+            // Użyj dowolnego kodu JS do przekierowania użytkownika, na przykład:
+            window.location.href = "{{ url_for('register') }}";
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(0deg, #0881ea 10%, #15a8a9 90%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-family: 'Ysabeau SC', sans-serif; /* Ustawienie czcionki */
+}
+
+header {
+    margin-bottom: 20px;
+}
+
+.header-text {
+    color: white;
+}
+
+nav.menu {
+    margin-top: 20px;
+}
+
+nav.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+nav.menu li {
+    margin-right: 20px;
+}
+
+/*
+nav.menu a.button {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    background-color: rgb(1, 0, 0);
+    transition: background-color 0.3s ease;
+    display: inline-block;
+}
+
+nav.menu a.button:hover {
+    background-color: #800000; 
+}
+*/

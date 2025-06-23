@@ -1,0 +1,106 @@
+/* Plik: static/css/reservations.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(0deg, #0881ea 10%, #15a8a9 90%);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+
+.container {
+    width: 80%;
+    max-width: 600px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+select,
+input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.btn,
+.button {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1.2em; 
+}
+
+.btn,
+.button,
+.btn:hover,
+.button:hover {
+    display: block;
+    margin-top: 20px;
+    padding: 15px 30px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.btn:hover,
+.button:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+.btnn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btnn:hover {
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
+
+/*  Media Queries dla mniejszych ekranów */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    .btn,
+    .button,
+    .btn:hover,
+    .button:hover {
+        padding: 15px 20px;
+    }
+}

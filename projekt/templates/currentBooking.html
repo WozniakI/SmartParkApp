@@ -1,0 +1,124 @@
+ <!-- 
+    html storny aktualnej rezerwacji
+    ma zawierać informacje o aktualnej rezerwacji:
+    powiadomienie 5.3
+    mapa 5.4
+    przycisk powrotu do home 3
+    przycisk do złożenia nowej rezerwacji 4.4
+-->
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Bookings</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Aktualne Rezerwacje</h2>
+        {% if current_bookings %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID Rezerwacji</th>
+                        <th>ID Użytkownika</th>
+                        <th>Miejsce Parkingowe</th>
+                        <th>Czas Przyjazdu</th>
+                        <th>Czas Wyjazdu</th>
+                        <th>Data rezerwacji</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in current_bookings %}
+                        <tr>
+                            <td>{{ booking[0] }}</td>
+                            <td>{{ booking[1] }}</td>
+                            <td>{{ booking[2] }}</td>
+                            <td>{{ booking[3] }}</td>
+                            <td>{{ booking[4] }}</td>
+                            <td>{{ booking[5] }}</td>
+
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Brak aktualnych rezerwacji.</p>
+        {% endif %}
+        <a href="{{ url_for('homePage') }}" class="btn">Powrót</a>
+    </div>
+</body>
+</html>
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current Bookings</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/current.css') }}">
+
+</head>
+<body> 
+    <h2>Aktualne Rezerwacje</h2>
+    <div class="table-container">
+       
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <ul class="flashes">
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+        {% if current_bookings %}
+            <table class="scrollable-table" style="overflow-y:scroll">
+                <thead class="fixed-header">
+                    <tr>
+                        
+                       
+                        <th>Miejsce Parkingowe</th>
+                        <th>Czas Przyjazdu</th>
+                        <th>Czas Wyjazdu</th>
+                        <th>Data rezerwacji</th>
+                        <th>Ustaw Powiadomienie</th>  
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for booking in current_bookings %}
+                        <tr>
+                           
+                            
+                            <td>{{ booking['parkingName'] }}</td>
+                            <td>{{ booking['arrivalTime'] }}</td>
+                            <td>{{ booking['departureTime'] }}</td>
+                            <td>{{ booking['reservationDate'] }}</td>
+
+                            <td>
+                                <!-- Dodaj formularz dla każdej rezerwacji -->
+                                <form action="/setNotification" method="post">
+                                    <input type="hidden" name="reservationId" value="{{ booking['reservationID'] }}">
+                                    <label for="notification_time">Notification Time:</label>
+                                    <input type="datetime-local" name="notification_time" id="notification_time" required>
+                                    <button type="submit">Set Notification</button>
+                                </form>
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>Brak aktualnych rezerwacji.</p>
+        {% endif %}
+       
+    </div>
+    <a href="{{ url_for('homePage') }}" class="button">Powrót</a>
+</body>
+</html>
+

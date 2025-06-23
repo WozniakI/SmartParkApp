@@ -1,0 +1,56 @@
+ <!-- 
+    mapa z trasą do parkingu 
+    powrót do home 3
+    powrot do 4.5
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+    <title>Reservation Details</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=TWOJ_KLUCZ_API&callback=initMap" 
+    async defer></script>
+    <style>
+        /* styl dla kontenera mapy */
+        #map {
+            height: 400px;
+            width: 100%;
+        }
+    </style>
+    <script>
+        // Inicjalizacja mapy
+        function initMap() {
+            // Pobieranie współrzędnych miejsca Kraków
+            var myLatLng = {lat: 19.56, lng: 50.04};
+            
+            // Utwórz mapę, ustawiając jej centralkę i poziom przybliżenia
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: myLatLng,
+                zoom: 15
+            });
+            
+            // Utwórz marker na mapie
+            var marker = new google.maps.Marker({
+                position: myLatLng,
+                map: map,
+                title: 'Miejsce rezerwacji'
+            });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        
+        <div id="map"></div>
+
+        <a href="{{ url_for('booking') }}" class="button">Powrót</a>
+        </div>
+</body>
+</html>
+

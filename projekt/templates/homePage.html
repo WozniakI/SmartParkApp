@@ -1,0 +1,36 @@
+ <!-- 
+    html storny głównej - obrazek 3
+    ma zawierać menu:
+    - regulamin 4.1 ma przekierowywqać do @app.route('/rules')
+    - moj profil 4.2 ma przekierowywać do @app.route('/profile')
+    - moje punkty 4.3 ma przekierowywać do @app.route('/awards')
+    - zarezerwuj 4.4 ma przekierowywać do @app.route('/booking')
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/background.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+
+    <title>Strona Główna</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Strona Główna</h1>
+        <nav class="menu">
+            <ul>
+                <li><a href="{{ url_for('rules') }}" class="button">Regulamin</a></li>
+                <li><a href="{{ url_for('userProfile') }}" class="button">Mój Profil</a></li>
+                <li><a href="{{ url_for('userAwards') }}" class="button">Moje Punkty</a></li>
+                <li><a href="{{ url_for('booking') }}" class="button">Zarezerwuj</a></li>
+             </ul>
+        </nav>
+        <div class="content">
+        </div>
+    </div>
+</body>
+</html>
